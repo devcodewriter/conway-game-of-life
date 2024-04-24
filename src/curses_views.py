@@ -4,6 +4,8 @@ from curses import window
 from time import sleep
 from src.life_grid import LifeGrid
 
+__all__ = ["CursesView"]
+
 class CursesView:
 
     def __init__(self, pattern: Pattern, generation: int =10, frame_rate: int = 7, bbox: (int, int, int, int) = (0, 0, 40, 40)) -> None:
