@@ -1,23 +1,14 @@
 from src.life_grid import LifeGrid
 from src.pattern import Pattern
-from src.views import CursesView
+from src.curses_views import CursesView
 from tomllib import loads
 from pathlib import Path
 
 PATTERN_FILE     =   Path(__file__).parent / "src/pattern.toml"
 
 def main() -> None:
-    blinker = get_pattern("Blinker")
-    grid = LifeGrid(blinker)
-    print(grid)
-    print(grid.display_grid((0,0, 5, 5)))
-
-    grid.evolve()
-    print(grid)
-    print(grid.display_grid((0,0, 5, 5)))
-
-    grid.evolve()
-    print(get_all_patterns())
+    curses_view = CursesView(get_pattern("Pulsar"), generation=150)
+    curses_view.show()
 
 def get_pattern(name: str, filename: Path = PATTERN_FILE) -> Pattern:
     data = loads(filename.read_text(encoding="utf-8"))

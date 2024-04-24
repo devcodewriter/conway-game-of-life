@@ -2,7 +2,7 @@ from collections import defaultdict
 from src.pattern import Pattern
 from typing import Dict
 ALIVE   = "\u2764"
-DEAD    = "."
+DEAD    = "\u2610"
 
 class LifeGrid:
     def __init__(self, pattern: Pattern) -> None:
